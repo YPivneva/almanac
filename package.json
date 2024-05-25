@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/YPivneva/almanac/issues"
   },
-  "homepage": "https://github.com/YPivneva/almanac#readme"
+  "homepage": "https://github.com/YPivneva/almanac#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
