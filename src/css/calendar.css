@@ -1,0 +1,103 @@
+.calendar-date h2 {
+  text-align: center;
+}
+
+/* контейнер календаря */
+#all-calendar {
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10px 15px;
+  padding: 10px 0px;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* контейнеры дня недели и числа */
+#week,
+#digit {
+  display: grid;
+  padding: 5px;
+}
+.grid-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* для месяцев */
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.module-month {
+  padding: 10px;
+}
+
+/* управлеение календарем */
+#panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#arrow-left,
+#arrow-right,
+#in-left,
+#in-right {
+  padding: 5px;
+  margin: 0px 5px;
+}
+
+/* месяц и год */
+#month-year {
+  min-width: 160px;
+}
+#month-year:hover {
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px rgb(119, 109, 109) inset;
+  cursor: pointer;
+}
+#month-year p {
+  padding: 5px;
+  font-size: 1.3rem;
+}
+
+/* ячейка дня недели */
+.week-cell {
+  padding: 5px;
+  margin: 5px;
+  background-color: #cdffb7ad;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* ячейки с числами */
+.number-cell {
+  padding: 5px;
+  font-size: 1rem;
+}
+.number-cell:hover,
+#arrow-left:hover,
+#arrow-right:hover,
+#in-left:hover,
+#in-right:hover,
+#comeback:hover,
+.month-year:hover,
+.module-month:hover,
+.month-year:hover {
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px rgb(119, 109, 109) inset;
+}
+
+.today-day,
+.now-month {
+  color: #126806;
+  outline: 2px solid #0f9f0a;
+  border-radius: 3px;
+  box-shadow:
+    0 0 15px #9be29f inset,
+    0 0 1px #dcf721 inset;
+}
+
+.color-red {
+  color: rgb(194, 7, 4);
+  cursor: pointer;
+}

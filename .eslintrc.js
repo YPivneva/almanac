@@ -20,9 +20,13 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
-  plugins: ["jest"],
+  plugins: ["jest", "import"],
   rules: {
-    "max-len": ["error", { ignoreComments: true }],
+    "max-len": ["error", { ignoreComments: true, code: 150 }],
+    "no-plusplus": "off",
     "import/prefer-default-export": "off",
+  },
+  settings: {
+    "import/extensions": [".js", ".jsx"],
   },
 };
