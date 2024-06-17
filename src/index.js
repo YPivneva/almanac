@@ -479,7 +479,21 @@ function Template() {
   document.getElementById("all-calendar").setAttribute("commutator", "1");
 }
 
-// запускать фунцию по заполнению календаря после полной загрузки страницы
+function toggleClass() {
+  if (document.getElementById("box-dark").checked === true) {
+    document.querySelector("body").classList.add("dark");
+    console.log("Checked");
+  } else {
+    document.querySelector("body").classList.remove("dark");
+    console.log("Not checked");
+  }
+}
+function toggle() {
+  document
+    .getElementById("box-dark")
+    .addEventListener("click", toggleClass, false);
+}
 window.onload = () => {
   Template();
+  toggle();
 };

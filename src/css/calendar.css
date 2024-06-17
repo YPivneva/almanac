@@ -8,7 +8,7 @@
   display: inline-flex;
   flex-direction: column;
   margin: 10px 15px;
-  padding: 10px 0px;
+  padding: 10px;
   box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -100,4 +100,9 @@
 .color-red {
   color: rgb(194, 7, 4);
   cursor: pointer;
+}
+
+.dark #all-calendar {
+  background: #e4f8e7cf;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.65);
 }

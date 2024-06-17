@@ -12,6 +12,11 @@ header h1 {
   text-align: center;
   margin: 20px;
 }
+.location-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .menu {
   margin: 20px 0px;
   display: flex;
@@ -39,7 +44,6 @@ header h1 {
     0 0 15px #88b972 inset,
     0 0 1px #75d361 inset;
 }
-
 .menu > li:hover,
 .menu > li:active {
   background-color: #e4f8e7;
@@ -49,6 +53,57 @@ header h1 {
 }
 .menu li:hover > a {
   color: #716559;
+}
+.theme {
+  margin-left: 20px;
+  text-align: center;
+}
+.theme p {
+  padding: 5px;
+}
+.button-dark {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+.button-dark input {
+  display: none;
+}
+.button-dark_on {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 10px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.button-dark_on:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 7px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .button-dark_on {
+  background-color: #9be29f;
+}
+input:focus + .button-dark_on {
+  box-shadow: 0 0 1px #9be29f;
+}
+input:checked + .button-dark_on:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
 }
 footer {
   height: 100px;
@@ -107,6 +162,17 @@ footer img {
   width: 100%;
   padding: 20px 10px;
   margin-bottom: 20px;
+}
+
+.dark {
+  background-color: #35363b;
+}
+.dark header h1,
+.dark .calendar-date h2,
+.dark .history-calendar h2,
+.dark .events__text,
+.dark .history-calendar p {
+  color: #d5d1d1;
 }
 
 @media screen and (max-width: 800px) {
