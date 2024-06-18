@@ -1,5 +1,5 @@
 /* ЗАПОЛНЕНИЕ КАЛЕНДАРЯ МЕСЯЦАМИ */
-export function buttonMonth(nowYear) {
+export default function buttonMonth(nowYear) {
   document
     .getElementById("all-calendar")
     .setAttribute("commutator", "2"); /* заполнения календаря месяцами) */

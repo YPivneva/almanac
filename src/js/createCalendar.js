@@ -179,13 +179,11 @@ function buttonComeback() {
   calendar(nowYear, nowMonth);
 }
 
-export function Template() {
-  /* ОБЪЯВЛЕНИЕ ПЕРЕМЕННЫХ */
+export default function Template() {
   const date = new Date();
   const todayMonth = date.getMonth();
   const todayYear = date.getFullYear();
 
-  /* СОЗДАНИЕ HTML ДОКУМЕНТА */
   document.getElementById("all-calendar").innerHTML = `<div id="panel">
     <div id="in-left">&#9668;</div>
     <div id="arrow-left">&#171;</div>

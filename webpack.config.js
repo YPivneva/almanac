@@ -1,39 +1,50 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// eslint-disable-next-line
-const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  entry: {
+    main: path.resolve(__dirname, "./src/index.js"),
+  },
   output: {
-    path: path.resolve(__dirname, "./dist"),
-    filename: "[name].[hash:8].js",
+    filename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
+  resolve: {
+    extensions: [".js"],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html",
+    }),
+    new HtmlWebpackPlugin({
+      // Also generate a test.html
+      filename: "history.html",
+      template: "src/history.html",
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /.s?css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-      {
-        test: /\.html$/,
-        use: "html-loader",
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "img/",
-            },
+            loader: "file-loader?name=/images/[name].[ext]",
           },
         ],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
       },
     ],
   },
@@ -41,18 +52,6 @@ module.exports = {
     static: "./dist",
   },
   optimization: {
-    minimize: true,
-    minimizer: [new HtmlMinimizerPlugin()],
+    runtimeChunk: "single",
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "./src/index.html"),
-      filename: "index.html",
-    }),
-    new HtmlWebpackPlugin({
-      // Also generate a test.html
-      filename: "history.html",
-      template: "./src/history.html",
-    }),
-  ],
 };

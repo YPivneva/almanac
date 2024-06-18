@@ -15,7 +15,7 @@ import {
 } from "./holidays";
 
 /* ШАБЛОН ПО ЗАПОЛНЕНИЮ СТАНДАРТНОГО ВИДА КАЛЕНДАРЯ - С ДНЯМИ НЕДЕЛЯМИ И ЧИСЛАМИ КАЛЕНДАРЯ */
-export function calendar(nowYear, nowMonth) {
+export default function calendar(nowYear, nowMonth) {
   document.getElementById("all-calendar").setAttribute("commutator", "1");
 
   const month = [
