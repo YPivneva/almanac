@@ -5,13 +5,13 @@ module.exports = {
     es2021: true,
     "jest/globals": true,
   },
-  extends: ["airbnb-base", "prettier"],
+  extends: ["airbnb-base", "eslint:recommended", "prettier"],
   overrides: [
     {
       env: {
         node: true,
       },
-      files: [".eslintrc.{js,cjs}"],
+      files: [".eslintrc.{js}"],
       parserOptions: {
         sourceType: "script",
       },
@@ -20,9 +20,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
-  plugins: ["jest"],
+  plugins: ["jest", "import", "eslint-plugin-html"],
   rules: {
-    "max-len": ["error", { ignoreComments: true }],
+    "max-len": ["error", { ignoreComments: true, code: 150 }],
+    "no-plusplus": "off",
     "import/prefer-default-export": "off",
+  },
+  settings: {
+    "import/extensions": [".js"],
+    "html/html-extensions": [".html"],
   },
 };
