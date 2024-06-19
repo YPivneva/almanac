@@ -2,7 +2,7 @@ import Template from "./js/createCalendar";
 import "./css/style.css";
 import "./css/calendar.css";
 import gh from "./img/gh.png";
-import favicon from "./img/favicon.ico";
+// import favicon from "./img/favicon.ico";
 // import Airtable from 'airtable';
 // import Airtable from '../node_modules/airtable';
 // const base = new Airtable({apiKey: 'd44c44765356129fcee8eac82652b4d115a876feac016323306c5c6420bea233'}).base('patYJxbij84aqWcSR');

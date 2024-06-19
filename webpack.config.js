@@ -6,6 +6,12 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, "./src/index.js"),
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "public"),
+    },
+    port: 9000,
+  },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
@@ -13,9 +19,6 @@ module.exports = {
   },
   resolve: {
     extensions: [".js"],
-  },
-  devServer: {
-    static: "./dist",
   },
   plugins: [
     new HtmlWebpackPlugin({
