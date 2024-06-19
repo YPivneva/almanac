@@ -1,6 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -14,28 +14,34 @@ module.exports = {
   resolve: {
     extensions: [".js"],
   },
+  devServer: {
+    static: "./dist",
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
     }),
     new HtmlWebpackPlugin({
-      // Also generate a test.html
       filename: "history.html",
       template: "src/history.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css",
     }),
   ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
-            loader: "file-loader?name=/images/[name].[ext]",
+            loader: "file-loader?name=/img/[name].[ext]",
           },
         ],
       },
@@ -47,9 +53,6 @@ module.exports = {
         },
       },
     ],
-  },
-  devServer: {
-    static: "./dist",
   },
   optimization: {
     runtimeChunk: "single",
