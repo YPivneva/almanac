@@ -171,7 +171,8 @@ footer img {
 .dark .calendar-date h2,
 .dark .history-calendar h2,
 .dark .events__text,
-.dark .history-calendar p {
+.dark .history-calendar p,
+.dark .theme p {
   color: #d5d1d1;
 }
 
