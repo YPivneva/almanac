@@ -57,6 +57,7 @@ function elementsData(dataTable) {
   });
 }
 
+drawDots(dataTable);
 window.onload = () => {
   if (localStorage.getItem("theme") === "active") {
     document.querySelector("body").classList.add("dark");
