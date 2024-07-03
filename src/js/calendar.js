@@ -103,18 +103,18 @@ export default function calendar(nowYear, nowMonth) {
       if (nowMonth < 10) {
         if (firstDay < 10) {
           document.getElementById("digit").innerHTML +=
-            `<div class="number-cell dateEvent="${nowYear}-0${nowMonth + 1}-0${firstDay}">${firstDay}</div>`;
+            `<div class="number-cell" dateEvent="${nowYear}-0${nowMonth + 1}-0${firstDay}">${firstDay}</div>`;
         } else {
           document.getElementById("digit").innerHTML +=
-            `<div class="number-cell dateEvent="${nowYear}-0${nowMonth + 1}-${firstDay}">${firstDay}</div>`;
+            `<div class="number-cell" dateEvent="${nowYear}-0${nowMonth + 1}-${firstDay}">${firstDay}</div>`;
         }
       } else {
         if (firstDay < 10) {
           document.getElementById("digit").innerHTML +=
-            `<div class="number-cell dateEvent="${nowYear}-${nowMonth + 1}-0${firstDay}">${firstDay}</div>`;
+            `<div class="number-cell" dateEvent="${nowYear}-${nowMonth + 1}-0${firstDay}">${firstDay}</div>`;
         } else {
           document.getElementById("digit").innerHTML +=
-            `<div class="number-cell dateEvent="${nowYear}-${nowMonth + 1}-${firstDay}">${firstDay}</div>`;
+            `<div class="number-cell" dateEvent="${nowYear}-${nowMonth + 1}-${firstDay}">${firstDay}</div>`;
         }
       }
       if (
@@ -147,7 +147,7 @@ export default function calendar(nowYear, nowMonth) {
     } else {
       /* заполняем ячейки текущего месяца */
       document.getElementById("digit").innerHTML +=
-        `<div class="number-cell" dateEvent="${nowYear}-0${nowMonth + 2}-${firstDay}">${nextMonth}</div>`;
+        `<div class="number-cell" dateEvent="${nowYear}-0${nowMonth + 2}-0${nextMonth}">${nextMonth}</div>`;
       nextMonth += 1;
     }
 
