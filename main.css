@@ -324,6 +324,12 @@ footer img {
   box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.65);
 }
 
+.number-cell {
+  cursor: not-allowed;
+}
+.number-cell.date-event {
+  cursor: pointer;
+}
 .date-event {
   position: relative;
 }
