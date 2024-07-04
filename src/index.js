@@ -6,6 +6,7 @@ import gh from "./img/gh.png";
 import Router from "./js/router";
 import toggle from "./js/darkTheme";
 import Airtable from "../node_modules/airtable";
+import filterData from "./js/filter";
 
 const base = new Airtable({
   apiKey:
@@ -62,12 +63,14 @@ function drawDots(dataTable) {
     let dateCell = item.getAttribute("dateEvent");
 
     dataTable.find((elem) => {
-      let parts = elem.date;
-      // console.log(parts, dateCell);
-      if (dateCell === parts) {
-        item.classList.add("date-event");
+      console.log(elem.date, dateCell);
+      if (dateCell === elem.date) {
+        return item.classList.add("date-event");
       }
     });
+    // let dateElement = dataTable.find((elem) => dateCell === elem.date);
+    // console.log(dateElement);
+    // if(typeof dateElement === Object){item.classList.add("date-event");}
   }
 }
 
@@ -77,8 +80,11 @@ window.onload = () => {
     document.getElementById("box-dark").checked = true;
   }
   document.getElementById("box-dark").addEventListener("click", toggle);
-  // document.querySelector(".date-event").addEventListener("click", filterData(dataTable, Event));
-  console.log("onload");
+  document.querySelectorAll(".date-event").forEach((el) =>
+    el.addEventListener("click", (event) => {
+      console.log(event.target.getAttribute("dateEvent"));
+    }),
+  );
 };
 window.addEventListener("load", () =>
   console.log(`PAGE FULLY RELOADED ${Date.now()}`),
