@@ -56,6 +56,27 @@ function elementsData(dataTable) {
     `;
   });
 }
+function drawDots(dataTable) {
+  // const dateCell = document.querySelector("#digit").getAttribute("dateEvent");
+
+  // for (let i = 0; i < document.getElementById("digit").children.length; i++) {
+  //   let dateCell = document.getElementById("digit").children[i].getAttribute("dateEvent");
+  //   console(document.getElementById("digit").children[i]);
+
+  // }
+
+  for (let item of document.getElementById("digit").children) {
+    console(item.innerHTML);
+  }
+
+  // dataTable.find((elem) => {
+  //   let parts = elem.date.split("-");
+  //   let conversionDate = parts[2] + "." + parts[1] + "." + parts[0];
+  //   if(conversionDate === dateCell){
+  //     document.getElementById("digit").childNodes[i].classList.add("date-event");
+  //   }
+  // });
+}
 
 drawDots(dataTable);
 window.onload = () => {
@@ -64,6 +85,7 @@ window.onload = () => {
     document.getElementById("box-dark").checked = true;
   }
   document.getElementById("box-dark").addEventListener("click", toggle);
+  // document.querySelector(".date-event").addEventListener("click", filterData(dataTable, Event));
 };
 window.addEventListener("load", () =>
   console.log(`PAGE FULLY RELOADED ${Date.now()}`),
