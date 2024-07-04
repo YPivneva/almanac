@@ -63,14 +63,11 @@ function drawDots(dataTable) {
     let dateCell = item.getAttribute("dateEvent");
 
     dataTable.find((elem) => {
-      console.log(elem.date, dateCell);
+      // console.log(elem.date, dateCell);
       if (dateCell === elem.date) {
         return item.classList.add("date-event");
       }
     });
-    // let dateElement = dataTable.find((elem) => dateCell === elem.date);
-    // console.log(dateElement);
-    // if(typeof dateElement === Object){item.classList.add("date-event");}
   }
 }
 
