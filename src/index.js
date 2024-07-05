@@ -5,8 +5,9 @@ import gh from "./img/gh.png";
 // import favicon from "./img/favicon.ico";
 import Router from "./js/router";
 import toggle from "./js/darkTheme";
-import Airtable from "../node_modules/airtable";
+import Airtable from "airtable";
 import filterData from "./js/filter";
+import drawDots from "./js/drawDots";
 
 const base = new Airtable({
   apiKey:
@@ -57,19 +58,6 @@ function elementsData(dataTable) {
       </div>
     `;
   });
-}
-function drawDots(dataTable) {
-  const dataTableIndex = dataTable.reduce((accumulator, element) => {
-    accumulator[element.date] = (accumulator[element.data] ?? 0) + 1;
-    return accumulator;
-  }, {});
-  for (let item of document.getElementById("digit").children) {
-    let dateCell = item.getAttribute("dateEvent");
-
-    if (dateCell in dataTableIndex) {
-      item.classList.add("date-event");
-    }
-  }
 }
 
 window.onload = () => {
