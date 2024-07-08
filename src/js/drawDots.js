@@ -10,4 +10,12 @@ export default function drawDots(dataTable) {
       item.classList.add("date-event");
     }
   }
+  document.querySelector("#digit").addEventLictener("click", (e) => {
+    if (!e.target.matches(".date-event")) {
+      console.log("@@");
+      return;
+    } else {
+      console.log(e.target.getAttribute("dateEvent"));
+    }
+  });
 }

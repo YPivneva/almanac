@@ -6,8 +6,9 @@ import gh from "./img/gh.png";
 import Router from "./js/router";
 import toggle from "./js/darkTheme";
 import Airtable from "airtable";
-import filterData from "./js/filter";
+import elementsData from "./js/elementsData";
 import drawDots from "./js/drawDots";
+import filterData from "./js/filter";
 
 const base = new Airtable({
   apiKey:
@@ -41,36 +42,12 @@ base("List data")
     },
   );
 
-function elementsData(dataTable) {
-  dataTable.forEach((elem) => {
-    let parts = elem.date.split("-");
-    let conversionDate = parts[2] + "." + parts[1] + "." + parts[0];
-    document.querySelector(".calendar-events").innerHTML += `
-      <div class="events__container">
-        <div class="events__date">
-           ${conversionDate}
-        </div>
-        <div class="events__text">
-          <p>
-            ${elem.event}
-          </p>
-        </div>
-      </div>
-    `;
-  });
-}
-
 window.onload = () => {
   if (localStorage.getItem("theme") === "active") {
     document.querySelector("body").classList.add("dark");
     document.getElementById("box-dark").checked = true;
   }
   document.getElementById("box-dark").addEventListener("click", toggle);
-  document.querySelectorAll(".date-event").forEach((el) =>
-    el.addEventListener("click", (event) => {
-      console.log(event.target.getAttribute("dateEvent"));
-    }),
-  );
 };
 window.addEventListener("load", () =>
   console.log(`PAGE FULLY RELOADED ${Date.now()}`),
