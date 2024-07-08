@@ -1,6 +1,6 @@
 export default function drawDots(dataTable) {
   const dataTableIndex = dataTable.reduce((accumulator, element) => {
-    accumulator[element.date] = (accumulator[element.data] ?? 0) + 1;
+    accumulator[element.Date] = (accumulator[element.data] ?? 0) + 1;
     return accumulator;
   }, {});
   for (let item of document.getElementById("digit").children) {

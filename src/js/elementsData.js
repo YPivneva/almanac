@@ -1,6 +1,6 @@
 export default function elementsData(dataTable) {
   dataTable.forEach((elem) => {
-    let parts = elem.date.split("-");
+    let parts = elem.Date.split("-");
     let conversionDate = parts[2] + "." + parts[1] + "." + parts[0];
     document.querySelector(".calendar-events").innerHTML += `
         <div class="events__container">
@@ -9,7 +9,7 @@ export default function elementsData(dataTable) {
           </div>
           <div class="events__text">
             <p>
-              ${elem.event}
+              ${elem.Event}
             </p>
           </div>
         </div>
