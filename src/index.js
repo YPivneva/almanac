@@ -25,35 +25,34 @@ fetch("https://api.airtable.com/v0/appABaSvqo4hvlcKJ/List data", {
     });
     elementsData(dataTable);
     drawDots(dataTable);
+    console.log("dataTable befor click", dataTable);
+    document
+      .getElementById("all-calendar")
+      .addEventListener("click", (ev, dataTable) => {
+        if (ev.target.matches(".date-event")) {
+          let dateFilter = ev.target.getAttribute("dateEvent");
+          let arrayFiltered = [];
+
+          console.log("dataTable after click", dataTable);
+          filterData(dataTable, dateFilter);
+
+          // console.log(arrayFiltered);
+          // document.querySelector(".calendar-events").innerHTML = "";
+          // elementsData(arrayFiltered);
+        }
+        // if (ev.target.matches("#arrow-right")) {
+        //   drawDots(dataTable);
+        // }
+      });
   });
 
-console.log("dataTable befor onload", dataTable);
-
-window.onload = (dataTable) => {
+window.onload = () => {
   console.log("onload");
   if (localStorage.getItem("theme") === "active") {
     document.querySelector("body").classList.add("dark");
     document.getElementById("box-dark").checked = true;
   }
   document.getElementById("box-dark").addEventListener("click", toggle);
-  document
-    .getElementById("all-calendar")
-    .addEventListener("click", (ev, dataTable) => {
-      if (ev.target.matches(".date-event")) {
-        let dateFilter = ev.target.getAttribute("dateEvent");
-        let arrayFiltered = [];
-
-        console.log("dataTable", dataTable);
-        filterData(dataTable, dateFilter);
-
-        // console.log(arrayFiltered);
-        // document.querySelector(".calendar-events").innerHTML = "";
-        // elementsData(arrayFiltered);
-      }
-      // if (ev.target.matches("#arrow-right")) {
-      //   drawDots(dataTable);
-      // }
-    });
 };
 window.addEventListener("load", () =>
   console.log(`PAGE FULLY RELOADED ${Date.now()}`),
