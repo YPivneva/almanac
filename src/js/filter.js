@@ -1,6 +1,5 @@
 export default function filterData(dataTable, dateFilter) {
-  console.log(dataTable);
-  let arrayFiltered = [];
+  // let arrayFiltered = [];
   arrayFiltered = dataTable.filter((el) => {
     let dateElement = el.Date; //"2024-06-27"
     if (dateElement === dateFilter) {
