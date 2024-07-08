@@ -11,15 +11,12 @@ import filterData from "./js/filter";
 
 const dataTable = [];
 
-let dataAirtable = fetch(
-  "https://api.airtable.com/v0/appABaSvqo4hvlcKJ/List data",
-  {
-    headers: {
-      Authorization:
-        "Bearer patYJxbij84aqWcSR.7700ce5a0bc54ffa25e3dec94158c2a75b51b0c9b509154866727333d9467315",
-    },
+fetch("https://api.airtable.com/v0/appABaSvqo4hvlcKJ/List data", {
+  headers: {
+    Authorization:
+      "Bearer patYJxbij84aqWcSR.7700ce5a0bc54ffa25e3dec94158c2a75b51b0c9b509154866727333d9467315",
   },
-)
+})
   .then((r) => r.json())
   .then(({ records }) => {
     records.forEach(function (el) {
@@ -28,37 +25,35 @@ let dataAirtable = fetch(
     });
     elementsData(dataTable);
     drawDots(dataTable);
-    document
-      .getElementById("all-calendar")
-      .addEventListener("click", (ev, dataTable) => {
-        if (ev.target.matches(".date-event")) {
-          let dateFilter = ev.target.getAttribute("dateEvent");
-          let arrayFiltered = [];
-
-          // setTimeout(() => {
-          //   filterData(dataTable, dateFilter);
-          // }, 1000);
-
-          console.log("dataTable", dataTable);
-
-          // filterData(dataTable, dateFilter);
-
-          // console.log(arrayFiltered);
-          // document.querySelector(".calendar-events").innerHTML = "";
-          // elementsData(arrayFiltered);
-        }
-        // if (ev.target.matches("#arrow-right")) {
-        //   drawDots(dataTable);
-        // }
-      });
   });
 
+console.log("dataTable befor onload", dataTable);
+
 window.onload = (dataTable) => {
+  console.log("onload");
   if (localStorage.getItem("theme") === "active") {
     document.querySelector("body").classList.add("dark");
     document.getElementById("box-dark").checked = true;
   }
   document.getElementById("box-dark").addEventListener("click", toggle);
+  document
+    .getElementById("all-calendar")
+    .addEventListener("click", (ev, dataTable) => {
+      if (ev.target.matches(".date-event")) {
+        let dateFilter = ev.target.getAttribute("dateEvent");
+        let arrayFiltered = [];
+
+        console.log("dataTable", dataTable);
+        filterData(dataTable, dateFilter);
+
+        // console.log(arrayFiltered);
+        // document.querySelector(".calendar-events").innerHTML = "";
+        // elementsData(arrayFiltered);
+      }
+      // if (ev.target.matches("#arrow-right")) {
+      //   drawDots(dataTable);
+      // }
+    });
 };
 window.addEventListener("load", () =>
   console.log(`PAGE FULLY RELOADED ${Date.now()}`),
