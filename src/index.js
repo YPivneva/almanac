@@ -48,6 +48,14 @@ window.onload = () => {
     document.getElementById("box-dark").checked = true;
   }
   document.getElementById("box-dark").addEventListener("click", toggle);
+
+  console.log(document.getElementById("all-calendar"));
+  document.getElementById("all-calendar").addEventLictener("click", (event) => {
+    console.log(event);
+    // if(event.target.matches('.date-event')){
+    //   console.log(event.target.getAttribute("dateEvent"));
+    // }
+  });
 };
 window.addEventListener("load", () =>
   console.log(`PAGE FULLY RELOADED ${Date.now()}`),
