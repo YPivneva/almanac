@@ -1,5 +1,7 @@
 import calendar from "./calendar";
 import buttonMonth from "./month";
+import drawDots from "./drawDots";
+import { dataTable } from "../index";
 
 function leftYear() {
   const commutator = parseInt(
@@ -165,6 +167,7 @@ function clickDigit(nowYear, nowMonth) {
   if (commutator === 1) {
     // если календарь находится в виде чисел-дат
     calendar(nowYear, nowMonth); // вызываем функцию календарь, которая автоматически проставляет даты
+    drawDots(dataTable);
   } else if (commutator === 2) {
     // если календарь находится в виде списка месяцев
     buttonMonth(nowYear); // вызываем функцию прорисовывания месяцев
