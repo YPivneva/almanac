@@ -1,6 +1,9 @@
 import { historyPage } from "./history";
 import { homePage } from "./home";
+import { dataTable } from "../index";
 import Template from "./createCalendar";
+import drawDots from "./drawDots";
+import elementsData from "./elementsData";
 
 function Router() {
   let listeners = [];
@@ -50,12 +53,13 @@ function Router() {
   const go = (url, state) => {
     previousPath = currentPath;
     history.pushState(state, url, url);
-    currentPath = location.pathname;
+    currentPath = url;
 
+    location.hash = url;
     handleAllListeners();
   };
 
-  window.addEventListener("popstate", handleAllListeners);
+  window.addEventListener("hashchange", handleAllListeners);
 
   return { on, go };
 }
@@ -70,6 +74,7 @@ const router = Router();
 
 router.on("/", createRender(`${homePage}`));
 router.on("/history", createRender(`${historyPage}`));
+// router.on("/^\/date\/(?<dateEvent>\d{4}-\d{2}-\d{2})$/", createRender(`${homePage}`));
 
 document.body.addEventListener("click", (event) => {
   if (!event.target.matches("a")) {

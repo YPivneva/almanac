@@ -49,7 +49,10 @@ window.onload = () => {
       drawDots(dataTable);
     }
   });
+  document.querySelector(".menu").addEventListener("click", async (ev) => {
+    if (ev.target.matches(".button-main-page")) {
+      // elementsData(dataTable);
+      drawDots(dataTable);
+    }
+  });
 };
-window.addEventListener("load", () =>
-  console.log(`PAGE FULLY RELOADED ${Date.now()}`),
-);
