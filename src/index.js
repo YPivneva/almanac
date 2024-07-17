@@ -9,6 +9,7 @@ const router = Router();
 
 router.on("/", homePage);
 router.on("/history", historyPage);
+router.on(/^\/date\/(\d{4}-\d{2}-\d{2})$/, console.log.bind(console, "Date"));
 
 document.body.addEventListener("click", (event) => {
   if (!event.target.matches("a")) {
