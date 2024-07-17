@@ -1,7 +1,7 @@
 import calendar from "./calendar";
 import buttonMonth from "./month";
 import drawDots from "./drawDots";
-import { dataTable } from "../index";
+// import { dataTable } from "../index";
 
 function leftYear() {
   const commutator = parseInt(
@@ -182,7 +182,7 @@ function buttonComeback() {
   calendar(nowYear, nowMonth);
 }
 
-export default function Template() {
+export default function createCalendar(dataTable) {
   const date = new Date();
   const todayMonth = date.getMonth();
   const todayYear = date.getFullYear();

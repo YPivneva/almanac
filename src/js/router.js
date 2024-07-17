@@ -1,11 +1,4 @@
-import { historyPage } from "./history";
-import { homePage } from "./home";
-import { dataTable } from "../index";
-import Template from "./createCalendar";
-import drawDots from "./drawDots";
-import elementsData from "./elementsData";
-
-function Router() {
+export default function Router() {
   let listeners = [];
   let currentPath = location.pathname;
   let previousPath = null;
@@ -20,9 +13,6 @@ function Router() {
 
     isMatch(match, currentPath) && onEnter(args);
     onLeave && isMatch(match, previousPath) && onLeave(args);
-    if (currentPath === "/") {
-      Template();
-    }
   };
 
   const handleAllListeners = () => listeners.forEach(handleListener);
@@ -63,24 +53,3 @@ function Router() {
 
   return { on, go };
 }
-
-const createRender =
-  (content) =>
-  (...args) => {
-    document.getElementById("root").innerHTML = `${content}`;
-  };
-
-const router = Router();
-
-router.on("/", createRender(`${homePage}`));
-router.on("/history", createRender(`${historyPage}`));
-// router.on("/^\/date\/(?<dateEvent>\d{4}-\d{2}-\d{2})$/", createRender(`${homePage}`));
-
-document.body.addEventListener("click", (event) => {
-  if (!event.target.matches("a")) {
-    return;
-  }
-  event.preventDefault();
-  let url = event.target.getAttribute("href");
-  router.go(url);
-});
