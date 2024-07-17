@@ -150,6 +150,9 @@
   animation: none;
   pointer-events: none;
 }
+.date-event a {
+  text-decoration: none;
+}
 
 /*!*********************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/style.css ***!
