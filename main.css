@@ -1,3 +1,156 @@
+/*!************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/calendar.css ***!
+  \************************************************************************/
+.calendar-date h2 {
+  text-align: center;
+}
+
+/* контейнер календаря */
+#all-calendar {
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10px 15px;
+  padding: 10px;
+  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* контейнеры дня недели и числа */
+#week,
+#digit {
+  display: grid;
+  padding: 5px;
+}
+.grid-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* для месяцев */
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.module-month {
+  padding: 10px;
+}
+
+/* управлеение календарем */
+#panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#arrow-left,
+#arrow-right,
+#in-left,
+#in-right {
+  padding: 5px;
+  margin: 0px 5px;
+}
+
+/* месяц и год */
+#month-year {
+  min-width: 160px;
+}
+#month-year:hover {
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px rgb(119, 109, 109) inset;
+  cursor: pointer;
+}
+#month-year p {
+  padding: 5px;
+  font-size: 1.3rem;
+}
+
+/* ячейка дня недели */
+.week-cell {
+  padding: 5px;
+  margin: 5px;
+  background-color: #cdffb7ad;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* ячейки с числами */
+.number-cell {
+  padding: 5px;
+  font-size: 1rem;
+}
+.number-cell:hover,
+#arrow-left:hover,
+#arrow-right:hover,
+#in-left:hover,
+#in-right:hover,
+#comeback:hover,
+.month-year:hover,
+.module-month:hover,
+.month-year:hover {
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px rgb(119, 109, 109) inset;
+}
+
+.today-day,
+.now-month {
+  color: #126806;
+  outline: 2px solid #0f9f0a;
+  border-radius: 3px;
+  box-shadow:
+    0 0 15px #9be29f inset,
+    0 0 1px #dcf721 inset;
+}
+
+.color-red {
+  color: rgb(194, 7, 4);
+  cursor: pointer;
+}
+
+.dark #all-calendar {
+  background: #e4f8e7cf;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.65);
+}
+
+.number-cell {
+  cursor: not-allowed;
+}
+.number-cell.date-event {
+  cursor: pointer;
+}
+.date-event {
+  position: relative;
+}
+.date-event:before {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: auto;
+  background-color: #f44336;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 3px;
+  left: 25px;
+  right: 0px;
+}
+.date-event:after {
+  position: absolute;
+  display: block;
+  width: 200%;
+  height: 0;
+  top: 50%;
+  left: -50%;
+  -webkit-user-select: none;
+  user-select: none;
+  content: "";
+  padding-bottom: 200%;
+  background: rgba(170, 170, 170, 0.3);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-50%) scale(0.05);
+  animation: none;
+  pointer-events: none;
+}
+
 /*!*********************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/style.css ***!
   \*********************************************************************/
@@ -210,158 +363,5 @@ footer img {
   .menu li {
     padding: 5px;
   }
-}
-
-/*!************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/calendar.css ***!
-  \************************************************************************/
-.calendar-date h2 {
-  text-align: center;
-}
-
-/* контейнер календаря */
-#all-calendar {
-  text-align: center;
-  display: inline-flex;
-  flex-direction: column;
-  margin: 10px 15px;
-  padding: 10px;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.3);
-}
-
-/* контейнеры дня недели и числа */
-#week,
-#digit {
-  display: grid;
-  padding: 5px;
-}
-.grid-7 {
-  grid-template-columns: repeat(7, 1fr);
-}
-
-/* для месяцев */
-.grid-4 {
-  grid-template-columns: repeat(4, 1fr);
-}
-.module-month {
-  padding: 10px;
-}
-
-/* управлеение календарем */
-#panel {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-#arrow-left,
-#arrow-right,
-#in-left,
-#in-right {
-  padding: 5px;
-  margin: 0px 5px;
-}
-
-/* месяц и год */
-#month-year {
-  min-width: 160px;
-}
-#month-year:hover {
-  border-radius: 3px;
-  box-shadow: 0px 0px 5px rgb(119, 109, 109) inset;
-  cursor: pointer;
-}
-#month-year p {
-  padding: 5px;
-  font-size: 1.3rem;
-}
-
-/* ячейка дня недели */
-.week-cell {
-  padding: 5px;
-  margin: 5px;
-  background-color: #cdffb7ad;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-/* ячейки с числами */
-.number-cell {
-  padding: 5px;
-  font-size: 1rem;
-}
-.number-cell:hover,
-#arrow-left:hover,
-#arrow-right:hover,
-#in-left:hover,
-#in-right:hover,
-#comeback:hover,
-.month-year:hover,
-.module-month:hover,
-.month-year:hover {
-  border-radius: 3px;
-  box-shadow: 0px 0px 5px rgb(119, 109, 109) inset;
-}
-
-.today-day,
-.now-month {
-  color: #126806;
-  outline: 2px solid #0f9f0a;
-  border-radius: 3px;
-  box-shadow:
-    0 0 15px #9be29f inset,
-    0 0 1px #dcf721 inset;
-}
-
-.color-red {
-  color: rgb(194, 7, 4);
-  cursor: pointer;
-}
-
-.dark #all-calendar {
-  background: #e4f8e7cf;
-  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.65);
-}
-
-.number-cell {
-  cursor: not-allowed;
-}
-.number-cell.date-event {
-  cursor: pointer;
-}
-.date-event {
-  position: relative;
-}
-.date-event:before {
-  content: "";
-  display: block;
-  width: 7px;
-  height: 7px;
-  margin: auto;
-  background-color: #f44336;
-  border-radius: 15px;
-  position: absolute;
-  bottom: 3px;
-  left: 25px;
-  right: 0px;
-}
-.date-event:after {
-  position: absolute;
-  display: block;
-  width: 200%;
-  height: 0;
-  top: 50%;
-  left: -50%;
-  -webkit-user-select: none;
-  user-select: none;
-  content: "";
-  padding-bottom: 200%;
-  background: rgba(170, 170, 170, 0.3);
-  border-radius: 50%;
-  opacity: 0;
-  transform: translateY(-50%) scale(0.05);
-  animation: none;
-  pointer-events: none;
 }
 
