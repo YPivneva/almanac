@@ -5,17 +5,10 @@ import { homePage } from "./js/home";
 import "./css/style.css";
 import gh from "./img/gh.png";
 
-const createRender =
-  (content) =>
-  (...args) => {
-    document.getElementById("root").innerHTML = `${content}`;
-  };
-
 const router = Router();
 
 router.on("/", homePage);
-router.on("/history", createRender(`${historyPage}`));
-// router.on("/^\/date\/(?<dateEvent>\d{4}-\d{2}-\d{2})$/", createRender(`${homePage}`));
+router.on("/history", historyPage);
 
 document.body.addEventListener("click", (event) => {
   if (!event.target.matches("a")) {

@@ -4,7 +4,7 @@ export default function Router() {
   let previousPath = null;
 
   const isMatch = (match, path) =>
-    (match instanceof RegExp && match.test(path)) ||
+    (match instanceof RegExp && path.match(match)) ||
     (typeof match === "function" && match(path)) ||
     (typeof match === "string" && match === path);
 
@@ -31,7 +31,6 @@ export default function Router() {
 
   const on = (match, onEnter, onLeave) => {
     const id = generateId();
-
     const listener = { id, match, onEnter, onLeave };
     listeners.push(listener);
     handleListener(listener);

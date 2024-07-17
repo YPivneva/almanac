@@ -1,4 +1,6 @@
-export const historyPage = `<article class="history-calendar">
+export const historyPage = () => {
+  document.getElementById("root").innerHTML =
+    `<article class="history-calendar">
         <h2>История происхождения календаря</h2>
         <p>
           Календарь &mdash; это система счисления больших промежутков времени,
@@ -144,3 +146,4 @@ export const historyPage = `<article class="history-calendar">
           Метонов цикл). Лунно-солнечный календарь применяется у евреев,
           исповедующих иудаизм, для вычисления сроков религиозных праздников.
         </p>`;
+};
