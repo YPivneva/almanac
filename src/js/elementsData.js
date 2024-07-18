@@ -1,4 +1,5 @@
 export default function elementsData(dataTable) {
+  document.querySelector(".calendar-events").innerHTML = "";
   dataTable.forEach((elem) => {
     let parts = elem.Date.split("-");
     let conversionDate = parts[2] + "." + parts[1] + "." + parts[0];

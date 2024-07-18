@@ -25,11 +25,6 @@ fetch("https://api.airtable.com/v0/appABaSvqo4hvlcKJ/List data", {
 
 const runHomeJS = () => {
   document.getElementById("all-calendar").addEventListener("click", (ev) => {
-    if (ev.target.matches(".date-event")) {
-      let dateFilter = ev.target.getAttribute("dateEvent");
-
-      filterData(dataTable, dateFilter);
-    }
     if (
       ev.target.matches("#arrow-right") ||
       ev.target.matches("#arrow-left") ||
@@ -45,11 +40,6 @@ const runHomeJS = () => {
   elementsData(dataTable);
   createCalendar(dataTable);
   drawDots(dataTable);
-  // document.querySelector(".menu").addEventListener("click", async (ev) => {
-  //   if (ev.target.matches(".button-main-page")) {
-
-  // }
-  // });
 };
 
 export const homePage = () => {

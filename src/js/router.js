@@ -1,6 +1,6 @@
 export default function Router() {
   let listeners = [];
-  let currentPath = location.pathname;
+  let currentPath = location.hash.replace("#", "");
   let previousPath = null;
 
   const isMatch = (match, path) =>
@@ -9,9 +9,10 @@ export default function Router() {
     (typeof match === "string" && match === path);
 
   const handleListener = ({ match, onEnter, onLeave }) => {
-    const args = { currentPath, previousPath, state: history.state };
+    const matchData = isMatch(match, currentPath);
+    const args = { currentPath, previousPath, state: history.state, matchData };
 
-    isMatch(match, currentPath) && onEnter(args);
+    matchData && onEnter(args);
     onLeave && isMatch(match, previousPath) && onLeave(args);
   };
 
@@ -31,6 +32,7 @@ export default function Router() {
 
   const on = (match, onEnter, onLeave) => {
     const id = generateId();
+    console.log({ currentPath, match });
     const listener = { id, match, onEnter, onLeave };
     listeners.push(listener);
     handleListener(listener);
@@ -41,7 +43,6 @@ export default function Router() {
 
   const go = (url, state) => {
     previousPath = currentPath;
-    history.pushState(state, url, url);
     currentPath = url;
 
     location.hash = url;

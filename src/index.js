@@ -2,6 +2,7 @@ import Router from "./js/router";
 import toggle from "./js/darkTheme";
 import { historyPage } from "./js/history";
 import { homePage } from "./js/home";
+import { filteredData } from "./js/filteredDataPage";
 import "./css/style.css";
 import gh from "./img/gh.png";
 
@@ -9,7 +10,7 @@ const router = Router();
 
 router.on("/", homePage);
 router.on("/history", historyPage);
-router.on(/^\/date\/(\d{4}-\d{2}-\d{2})$/, console.log.bind(console, "Date"));
+router.on(/^\/date\/(\d{4}-\d{2}-\d{2})$/, filteredData);
 
 document.body.addEventListener("click", (event) => {
   if (!event.target.matches("a")) {
