@@ -32,7 +32,6 @@ export default function Router() {
 
   const on = (match, onEnter, onLeave) => {
     const id = generateId();
-    console.log({ currentPath, match });
     const listener = { id, match, onEnter, onLeave };
     listeners.push(listener);
     handleListener(listener);

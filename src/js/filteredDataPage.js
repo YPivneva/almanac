@@ -5,7 +5,25 @@ import filterData from "./filter";
 import createCalendar from "./createCalendar";
 import { dataTable } from "./home";
 
-export const filteredData = () => {
+const runFilterJS = async (dataTable) => {
+  document.getElementById("all-calendar").addEventListener("click", (ev) => {
+    if (
+      ev.target.matches("#arrow-right") ||
+      ev.target.matches("#arrow-left") ||
+      ev.target.matches("#in-left") ||
+      ev.target.matches("#in-right") ||
+      ev.target.matches("#comeback")
+    ) {
+      createCalendar(dataTable);
+      drawDots(dataTable);
+    }
+  });
+  await dataTable;
+  createCalendar(dataTable);
+  drawDots(dataTable);
+};
+
+export const filteredData = (args) => {
   document.getElementById("root").innerHTML =
     `<article class="calendar-container">
         <div class="calendar-events"></div>
@@ -14,22 +32,14 @@ export const filteredData = () => {
           <div id="all-calendar"></div>
         </div>
       </article>`;
+  runFilterJS();
 
-  // console.log(window.location.matchData);
+  let dateFilter = args.matchData[1];
+  let arrayFiltered = [];
 
-  // let dateFilter = "2024-07-10";
-  // let arrayFiltered = [];
-  // async () => {
-  //     await filterData(dataTable, dateFilter);
-  //     elementsData(arrayFiltered);
-  // }
-
-  let arrayFiltered = [
-    {
-      Date: "2023-07-10",
-      ID: 63,
-      Event: "поздравляем",
-    },
-  ];
-  elementsData(arrayFiltered);
+  async (dataTable) => {
+    await dataTable;
+    filterData(dataTable, dateFilter);
+    elementsData(arrayFiltered);
+  };
 };

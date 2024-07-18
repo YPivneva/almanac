@@ -18,9 +18,9 @@ fetch("https://api.airtable.com/v0/appABaSvqo4hvlcKJ/List data", {
       let objElemData = el.fields;
       dataTable.push(objElemData);
     });
-    elementsData(dataTable);
-    createCalendar(dataTable);
-    drawDots(dataTable);
+    // elementsData(dataTable);
+    // createCalendar(dataTable);
+    // drawDots(dataTable);
   });
 
 const runHomeJS = () => {
