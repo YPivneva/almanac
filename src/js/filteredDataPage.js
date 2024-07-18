@@ -14,4 +14,22 @@ export const filteredData = () => {
           <div id="all-calendar"></div>
         </div>
       </article>`;
+
+  // console.log(window.location.matchData);
+
+  // let dateFilter = "2024-07-10";
+  // let arrayFiltered = [];
+  // async () => {
+  //     await filterData(dataTable, dateFilter);
+  //     elementsData(arrayFiltered);
+  // }
+
+  let arrayFiltered = [
+    {
+      Date: "2023-07-10",
+      ID: 63,
+      Event: "поздравляем",
+    },
+  ];
+  elementsData(arrayFiltered);
 };
