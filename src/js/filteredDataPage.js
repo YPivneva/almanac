@@ -3,27 +3,10 @@ import elementsData from "./elementsData";
 import drawDots from "./drawDots";
 import filterData from "./filter";
 import createCalendar from "./createCalendar";
-import { dataTable } from "./home";
+import { dataPromise } from "./dataPromise";
+import { runFilterJS } from "./createNavigation";
 
-const runFilterJS = async (dataTable) => {
-  document.getElementById("all-calendar").addEventListener("click", (ev) => {
-    if (
-      ev.target.matches("#arrow-right") ||
-      ev.target.matches("#arrow-left") ||
-      ev.target.matches("#in-left") ||
-      ev.target.matches("#in-right") ||
-      ev.target.matches("#comeback")
-    ) {
-      createCalendar(dataTable);
-      drawDots(dataTable);
-    }
-  });
-  await dataTable;
-  createCalendar(dataTable);
-  drawDots(dataTable);
-};
-
-export const filteredData = (args) => {
+export const filteredData = async (args) => {
   document.getElementById("root").innerHTML =
     `<article class="calendar-container">
         <div class="calendar-events"></div>
@@ -32,14 +15,10 @@ export const filteredData = (args) => {
           <div id="all-calendar"></div>
         </div>
       </article>`;
-  runFilterJS();
 
   let dateFilter = args.matchData[1];
-  let arrayFiltered = [];
-
-  async (dataTable) => {
-    await dataTable;
-    filterData(dataTable, dateFilter);
-    elementsData(arrayFiltered);
-  };
+  const dataTable = await dataPromise;
+  runFilterJS(dataTable);
+  const arrayFiltered = filterData(dataTable, dateFilter);
+  elementsData(arrayFiltered);
 };

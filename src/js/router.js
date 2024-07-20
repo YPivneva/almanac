@@ -1,6 +1,10 @@
+function getNormalisedUrl(url) {
+  return url.replace("#", "");
+}
+
 export default function Router() {
   let listeners = [];
-  let currentPath = location.hash.replace("#", "");
+  let currentPath = getNormalisedUrl(location.hash);
   let previousPath = null;
 
   const isMatch = (match, path) =>
