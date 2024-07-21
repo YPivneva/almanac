@@ -4,21 +4,23 @@ import drawDots from "./drawDots";
 import filterData from "./filter";
 import createCalendar from "./createCalendar";
 import { dataPromise } from "./dataPromise";
-import { runFilterJS } from "./createNavigation";
 
 export const filteredData = async (args) => {
+  let dateFilter = args.matchData[1];
+  const dataTable = await dataPromise;
+  const arrayFiltered = filterData(dataTable, dateFilter);
+
   document.getElementById("root").innerHTML =
-    `<article class="calendar-container">
+    `<h2 class="heading-filter">Все события за ${dateFilter}</h2>
+     <article class="calendar-container">
         <div class="calendar-events"></div>
         <div class="calendar-date">
-          <h2>Календарь</h2>
+          <h3>Календарь</h3>
           <div id="all-calendar"></div>
         </div>
       </article>`;
 
-  let dateFilter = args.matchData[1];
-  const dataTable = await dataPromise;
-  runFilterJS(dataTable);
-  const arrayFiltered = filterData(dataTable, dateFilter);
   elementsData(arrayFiltered);
+  createCalendar(dataTable);
+  drawDots(dataTable);
 };

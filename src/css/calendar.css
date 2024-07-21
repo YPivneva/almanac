@@ -1,4 +1,4 @@
-.calendar-date h2 {
+.calendar-date h3 {
   text-align: center;
 }
 
@@ -44,6 +44,11 @@
 #in-right {
   padding: 5px;
   margin: 0px 5px;
+}
+
+#comeback a {
+  text-decoration: none;
+  color: black;
 }
 
 /* месяц и год */
@@ -149,4 +154,9 @@
 }
 .date-event a {
   text-decoration: none;
+}
+
+.heading-filter {
+  text-align: center;
+  margin: 10px 0px 20px;
 }
