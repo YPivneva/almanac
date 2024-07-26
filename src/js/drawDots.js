@@ -9,7 +9,7 @@ export default function drawDots(dataTable) {
     if (dateCell in dataTableIndex) {
       item.classList.add("date-event");
       let numberDate = item.innerHTML;
-      item.innerHTML = `<a href="#/date/${dateCell}">${numberDate}</a>`;
+      item.innerHTML = `<a href="/date/${dateCell}">${numberDate}</a>`;
     }
   }
 }

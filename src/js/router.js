@@ -46,7 +46,7 @@ export default function Router() {
 
   const go = (url, state) => {
     previousPath = currentPath;
-    currentPath = url;
+    currentPath = getNormalisedUrl(url);
 
     location.hash = url;
     handleAllListeners();
