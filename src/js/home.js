@@ -26,7 +26,7 @@ export const homePage = async () => {
 let gyre = document.querySelector("#containerGyre");
 
 window.addEventListener("load", () => {
-  gyre.classList.add("hide");
+  // gyre.classList.add("hide");
   setTimeout(() => {
     gyre.remove();
   }, 800);
