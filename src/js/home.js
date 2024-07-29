@@ -1,4 +1,5 @@
 import "../css/calendar.css";
+import "../css/gyre.css";
 import elementsData from "./elementsData";
 import drawDots from "./drawDots";
 import filterData from "./filter";
@@ -21,3 +22,12 @@ export const homePage = async () => {
   drawDots(dataTable);
   elementsData(dataTable);
 };
+
+let gyre = document.querySelector("#containerGyre");
+
+window.addEventListener("load", () => {
+  gyre.classList.add("hide");
+  setTimeout(() => {
+    gyre.remove();
+  }, 800);
+});
