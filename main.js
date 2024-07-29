@@ -125,7 +125,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   homePage: () => (/* binding */ homePage)\n/* harmony export */ });\n/* harmony import */ var _css_calendar_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/calendar.css */ \"./src/css/calendar.css\");\n/* harmony import */ var _elementsData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elementsData */ \"./src/js/elementsData.js\");\n/* harmony import */ var _drawDots__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./drawDots */ \"./src/js/drawDots.js\");\n/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filter */ \"./src/js/filter.js\");\n/* harmony import */ var _createCalendar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createCalendar */ \"./src/js/createCalendar.js\");\n/* harmony import */ var _dataPromise__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dataPromise */ \"./src/js/dataPromise.js\");\n\n\n\n\n\n\nconst homePage = async () => {\n  document.getElementById(\"root\").innerHTML = `<article class=\"calendar-container\">\n        <div class=\"calendar-events\"></div>\n        <div class=\"calendar-date\">\n          <h3>Календарь</h3>\n          <div id=\"all-calendar\"></div>\n        </div>\n      </article>`;\n  const dataTable = await _dataPromise__WEBPACK_IMPORTED_MODULE_5__.dataPromise;\n  (0,_createCalendar__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(dataTable);\n  (0,_drawDots__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(dataTable);\n  (0,_elementsData__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(dataTable);\n};\n\n//# sourceURL=webpack://almanac/./src/js/home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   homePage: () => (/* binding */ homePage)\n/* harmony export */ });\n/* harmony import */ var _css_calendar_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/calendar.css */ \"./src/css/calendar.css\");\n/* harmony import */ var _css_gyre_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../css/gyre.css */ \"./src/css/gyre.css\");\n/* harmony import */ var _elementsData__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./elementsData */ \"./src/js/elementsData.js\");\n/* harmony import */ var _drawDots__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./drawDots */ \"./src/js/drawDots.js\");\n/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filter */ \"./src/js/filter.js\");\n/* harmony import */ var _createCalendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./createCalendar */ \"./src/js/createCalendar.js\");\n/* harmony import */ var _dataPromise__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dataPromise */ \"./src/js/dataPromise.js\");\n\n\n\n\n\n\n\nconst homePage = async () => {\n  document.getElementById(\"root\").innerHTML = `<article class=\"calendar-container\">\n        <div class=\"calendar-events\"></div>\n        <div class=\"calendar-date\">\n          <h3>Календарь</h3>\n          <div id=\"all-calendar\"></div>\n        </div>\n      </article>`;\n  const dataTable = await _dataPromise__WEBPACK_IMPORTED_MODULE_6__.dataPromise;\n  (0,_createCalendar__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(dataTable);\n  (0,_drawDots__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(dataTable);\n  (0,_elementsData__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(dataTable);\n};\nlet gyre = document.querySelector(\"#containerGyre\");\nwindow.addEventListener(\"load\", () => {\n  gyre.classList.add(\"hide\");\n  setTimeout(() => {\n    gyre.remove();\n  }, 800);\n});\n\n//# sourceURL=webpack://almanac/./src/js/home.js?");
 
 /***/ }),
 
@@ -166,6 +166,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://almanac/./src/css/calendar.css?");
+
+/***/ }),
+
+/***/ "./src/css/gyre.css":
+/*!**************************!*\
+  !*** ./src/css/gyre.css ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://almanac/./src/css/gyre.css?");
 
 /***/ }),
 
