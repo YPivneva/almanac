@@ -1,34 +1,30 @@
-import Template from "./js/createCalendar";
-import "./css/style.css";
-import "./css/calendar.css";
-import gh from "./img/gh.png";
 import Router from "./js/router";
-// import favicon from "./img/favicon.ico";
+import toggle from "./js/darkTheme";
+import { historyPage } from "./js/history";
+import { homePage } from "./js/home";
+import { filteredData } from "./js/filteredDataPage";
+import "./css/style.css";
+import gh from "./img/gh.png";
 
-function toggleClass() {
-  if (document.getElementById("box-dark").checked === true) {
-    console.log(localStorage.getItem("theme"));
-    document.querySelector("body").classList.add("dark");
-    localStorage.setItem("theme", "active");
-  } else {
-    console.log(localStorage.getItem("theme"));
-    document.querySelector("body").classList.remove("dark");
-    localStorage.setItem("theme", "diactive");
-  }
-}
-function toggle() {
-  if (localStorage.getItem("theme") === "diactive") {
-    document.querySelector("body").classList.add("dark");
-  }
-  document
-    .getElementById("box-dark")
-    .addEventListener("click", toggleClass(), false);
-}
+const router = Router();
 
-window.toggle = toggle;
+router.on("/", homePage);
+router.on("/history", historyPage);
+router.on(/^\/date\/(\d{4}-\d{2}-\d{2})$/, filteredData);
+
+document.body.addEventListener("click", (event) => {
+  if (!event.target.matches("a")) {
+    return;
+  }
+  event.preventDefault();
+  let url = event.target.getAttribute("href");
+  router.go(url);
+});
+
 window.onload = () => {
-  Template();
+  if (localStorage.getItem("theme") === "active") {
+    document.querySelector("body").classList.add("dark");
+    document.getElementById("box-dark").checked = true;
+  }
+  document.getElementById("box-dark").addEventListener("click", toggle);
 };
-window.addEventListener("load", () =>
-  console.log(`PAGE FULLY RELOADED ${Date.now()}`),
-);

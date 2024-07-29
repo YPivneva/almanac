@@ -90,14 +90,33 @@ export default function calendar(nowYear, nowMonth) {
     /* заполняем ячейки перед числами текущего месяца */
     if (weekDay >= 0) {
       // если день недели не выходит на понедельник, то заполняются ячейки пока не дойдет до дня недели в календаре первого дня текущего месяца
-      document.getElementById("digit").innerHTML += `<div class="number-cell">${
-        prevDay - weekDay
-      }</div>`;
+      if (nowMonth < 10) {
+        document.getElementById("digit").innerHTML +=
+          `<div class="number-cell" dateEvent="${nowYear}-0${nowMonth}-${prevDay - weekDay}">${prevDay - weekDay}</div>`;
+      } else {
+        document.getElementById("digit").innerHTML +=
+          `<div class="number-cell" dateEvent="${nowYear}-${nowMonth}-${prevDay - weekDay}">${prevDay - weekDay}</div>`;
+      }
       weekDay -= 1;
     } else if (firstDay !== lastDay + 1) {
       /* заполняем ячейки текущего месяца */
-      document.getElementById("digit").innerHTML +=
-        `<div class="number-cell">${firstDay}</div>`;
+      if (nowMonth < 10) {
+        if (firstDay < 10) {
+          document.getElementById("digit").innerHTML +=
+            `<div class="number-cell" dateEvent="${nowYear}-0${nowMonth + 1}-0${firstDay}">${firstDay}</div>`;
+        } else {
+          document.getElementById("digit").innerHTML +=
+            `<div class="number-cell" dateEvent="${nowYear}-0${nowMonth + 1}-${firstDay}">${firstDay}</div>`;
+        }
+      } else {
+        if (firstDay < 10) {
+          document.getElementById("digit").innerHTML +=
+            `<div class="number-cell" dateEvent="${nowYear}-${nowMonth + 1}-0${firstDay}">${firstDay}</div>`;
+        } else {
+          document.getElementById("digit").innerHTML +=
+            `<div class="number-cell" dateEvent="${nowYear}-${nowMonth + 1}-${firstDay}">${firstDay}</div>`;
+        }
+      }
       if (
         firstDay === nowDate &&
         nowMonth === new Date().getMonth() &&
@@ -128,7 +147,7 @@ export default function calendar(nowYear, nowMonth) {
     } else {
       /* заполняем ячейки текущего месяца */
       document.getElementById("digit").innerHTML +=
-        `<div class="number-cell">${nextMonth}</div>`;
+        `<div class="number-cell" dateEvent="${nowYear}-0${nowMonth + 2}-0${nextMonth}">${nextMonth}</div>`;
       nextMonth += 1;
     }
 
