@@ -1,0 +1,22 @@
+{
+  "name": "env-setup",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000a\u0000l\u0000m\u0000a\u0000n\u0000a\u0000c\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YPivneva/almanac.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YPivneva/almanac/issues"
+  },
+  "homepage": "https://github.com/YPivneva/almanac#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
